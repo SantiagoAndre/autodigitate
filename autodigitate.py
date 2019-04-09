@@ -14,15 +14,22 @@ def get_word():
 	else:
 		return word
 def key_word(word,keyboard = Controller()):
+	tabs = 0
 	for char in word:
 		if char == '\n':
-			#keyboard.press(Key.enter)
-			#keyboard.release(Key.enter)
-			pass
+			keyboard.press(Key.down)
+			keyboard.release(Key.down)
+			keyboard.press(Key.shift)
+			for _ in range(tabs):
+				keyboard.press(Key.tab)
+				keyboard.release(Key.tab)
+			keyboard.release(Key.shift)
+
 		elif char == '\t':
+			tabs = tabs + 1
 			keyboard.press(Key.tab)
 			keyboard.release(Key.tab)
-			pass		
+			pass
 		else:
 			keyboard.press(char)
 			keyboard.release(char)
