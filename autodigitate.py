@@ -17,14 +17,14 @@ def key_word(word,keyboard = Controller()):
 	tabs = 0
 	for char in word:
 		if char == '\n':
-			keyboard.press(Key.down)
-			keyboard.release(Key.down)
+			#keyboard.press(Key.down)
+			#keyboard.release(Key.down)
 			keyboard.press(Key.shift)
 			for _ in range(tabs):
 				keyboard.press(Key.tab)
 				keyboard.release(Key.tab)
 			keyboard.release(Key.shift)
-
+			tabs = 0
 		elif char == '\t':
 			tabs = tabs + 1
 			keyboard.press(Key.tab)
